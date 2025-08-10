@@ -85,7 +85,6 @@ in
                   [core]
             	      editor = nvim
                   	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-                  	pager = delta
                   [init]
                   	defaultBranch = main
                   [checkout]
