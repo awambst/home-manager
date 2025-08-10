@@ -1,0 +1,350 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 32, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 0, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "custom/os-button",
+        "keyboard-state",
+        "hyprland/workspaces",
+        "hyprland/submap",
+        "sway/scratchpad",
+        "custom/media",
+        "tray"
+        //"wlr/taskbar"
+    ],
+    "modules-center": [
+        //"sway/window"
+        "pulseaudio",
+        "clock",
+        //"backlight",
+        "backlight/slider"
+    ],
+    "modules-right": [
+        //"mpd",
+        //"idle_inhibitor",
+        "network",
+        "power-profiles-daemon",
+        "cpu",
+        "memory",
+        "temperature",
+        "keyboard-state",
+        "sway/language",
+        "battery",
+        "battery#bat2",
+        "custom/power"
+    ],
+    // Modules configuration
+    "hyprland/workspaces": {
+        "icon-size": 32,
+        "spacing": 16,
+        "format": "<sub>{icon}</sub>  {windows}  ",
+        "format-window-separator": "  ",
+        "window-rewrite-default": "<big></big>",
+        "window-rewrite": {
+            "title<.*youtube.*>": "", // Windows whose titles contain "youtube"
+            "class<firefox>": "<big></big>", // Windows whose classes are "firefox"
+            "class<firefox> title<.*github.*>": "", // Windows whose class is "firefox" and title contains "github". Note that "class" always comes first.
+            "foot": "", // Windows that contain "foot" in either class or title. For optimization reasons, it will only match against a title if at least one other window explicitly matches against a title.
+            "code": "󰨞",
+            "class<alacritty>": "",
+            "class<vesktop>": "<big></big>",
+            "class<discord>": "",
+            "class<steam>": ""
+        }
+    },
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "hyprland/submap": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": [
+            "",
+            ""
+        ],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+    /*    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 5,
+        "consume-icons": {
+            "on": " "["", "", "", "", ""]
+            
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },*/
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10,
+        "show-passive-items": false
+    },
+    "clock": {
+        "timezone": "Europe/Paris",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "week-start": 1,
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff5588'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click": "mode",
+            //"on-scroll-up": "tz_up",
+            //"on-scroll-down": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        },
+        "format": " <b>{:%X}</b>",
+        /*  "tooltip-format": "<tt>{calendar}</tt>",
+ */
+        "interval": 1
+    },
+    "cpu": {
+        "interval": 5,
+        "tooltip": true,
+        "format": " : {icon}",
+        "format-icons": [
+            "<span color='#69ff94'>▁</span>", // green
+            "<span color='#2aa9ff'>▂</span>", // blue
+            "<span color='#f8f8f2'>▃</span>", // white
+            "<span color='#f8f8f2'>▄</span>", // white
+            "<span color='#ffffa5'>▅</span>", // yellow
+            "<span color='#ffffa5'>▆</span>", // yellow
+            "<span color='#ff9977'>▇</span>", // orange
+            "<span color='#dd532e'>█</span>" // red
+        ]
+    },
+    "memory": {
+        "interval": 5,
+        "format": "{used:0.1f}G ",
+        "tooltip-format": "{used:0.1f}GiB / {total:0.1f}GiB of RAM used"
+    },
+    "temperature": {
+        "interval": 12,
+        "thermal-zone": 0,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": " : {icon}",
+        "format": " : {icon}",
+        "temperature": 5,
+        "format-icons": [
+            "<span color='#f8f8f2'>▃</span>", // white
+            "<span color='#f8f8f2'>▃</span>", // white
+            "<span color='#69ff94'>▁</span>", // green
+            "<span color='#2aa9ff'>▂</span>", // blue
+            "<span color='#f8f8f2'>▃</span>", // white
+            "<span color='#f8f8f2'>▄</span>", // white
+            "<span color='#ffffa5'>▅</span>", // yellow
+            "<span color='#ffffa5'>▆</span>", // yellow
+            "<span color='#ff9977'>▇</span>", // orange
+            "<span color='#dd532e'>█</span>" // red
+        ]
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "reverse-scrolling": true,
+        "on-scroll-up": "light -A 5",
+        "on-scroll-down": "light -N 0.01 && light -U 5",
+        "on-click": "light -A 5",
+        "on-click-right": "light -N 0.01 && light -U 5",
+        "format": "{icon}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "tooltip-format": "Luminosity : {percent}% "
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}",
+        "format-full": "{icon}",
+        "format-charging": "",
+        "format-plugged": "",
+        "interval": 10,
+        "tooltip-format": "{capacity}% / {timeTo}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": [
+            "<span color='#dd532e'>󰂎</span>", // red
+            "<span color='#dd532e'>󰁺</span>", // red
+            "<span color='#ff9977'>󰁻</span>", // orange
+            "<span color='#ff9977'>󰁼</span>", // orange
+            "<span color='#ffffa5'>󰁽</span>", // yellow
+            "<span color='#ffffa5'>󰁾</span>", // yellow
+            "<span color='#f8f8f2'>󰁿</span>", // white
+            "<span color='#5ac9ff'>󰂀</span>", // blue
+            "<span color='#5ac9ff'>󰂁</span>", // blue
+            "<span color='#69ff94'>󰂂</span>", // green
+            "<span color='#69ff94'>󰁹</span>" // green
+        ]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "", //could use {essid}
+        "format-ethernet": "",
+        "tooltip-format-wifi": "{essid}, {signalStrength}%  \n{ipaddr} on {ifname}\n{bandwidthDownOctets} \n{bandwidthUpOctets} ",
+        "tooltip-format-ethernet": "{ipaddr} on {ifname} \n{bandwidthDownOctets} \n{bandwidthUpOctets} ",
+        //"format-linked": "{ifname} (No IP) , {bandwidthUpOctets} {bandwidthDownOctets} "
+        "format-disconnected": "⚠",
+        "tooltip-format-disconnected": "Network disconnected.",
+        //"format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip": true,
+        "menu": "on-click",
+        "menu-file": "$HOME/.config/waybar/network_menu.xml", // Menu file in resources folder
+        "menu-actions": {
+            "disconnect": "hyprctl dispatch exec iwctl station wlan0 disconnect",
+            "reconnect": "iwctl station $(iwctl station list | awk 'NR==5 {print $2}') connect $(iwctl station wlan0 get-networks | awk 'NR==5 {print $2}')",
+            "gui": "pkill cmst; hyprctl dispatch exec cmst"
+        },
+        "on-click-right": "pkill cmst; hyprctl dispatch exec cmst",
+        "interval": 1
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "<tt>{icon} {format_source}</tt>",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "<span color='#ff9977'></span>",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "tooltip-format": "{volume}% {icon}\nmb one day mic volume%",
+        "on-click-right": "pavucontrol"
+    },
+    "custom/media": {
+        "format": "{icon} {text}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+    "custom/power": {
+        "format": "⏻ ",
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+        "menu-actions": {
+            "shutdown": "$HOME/.config/waybar/power_confirm.sh shutdown",
+            "reboot": "$HOME/.config/waybar/power_confirm.sh reboot",
+            "suspend": "systemctl suspend",
+            "lock": "hyprlock",
+            "logout": "$HOME/.config/waybar/power_confirm.sh logout"
+        }
+    },
+    "wlr/taskbar": {
+        "format": "{icon}", //{title:.17}",
+        "icon-size": 28,
+        "spacing": 3,
+        "on-click-middle": "close",
+        "tooltip-format": "{title}",
+        "ignore-list": [],
+        "on-click": "activate"
+    },
+    "custom/os-button": {
+        "format": "",
+        "on-click": "wofi --show drun",
+        "tooltip": false
+    },
+    "backlight/slider": {
+        "min": 1,
+        "max": 100,
+        "orientation": "horizontal"
+        //"device": "intel_backlight"
+    }
+}

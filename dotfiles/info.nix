@@ -1,0 +1,7 @@
+{
+  # Fill it with your personnal infos, eg :
+  # login = "prenom.nom";
+  # nom = "Nom";
+  # prenom = "Prenom";
+  # mail = "mon.email@genial.com";
+}
