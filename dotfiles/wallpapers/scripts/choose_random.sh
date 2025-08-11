@@ -33,7 +33,7 @@ while true; do
     echo "New loop through wallpapers"
     current_theme=$(get_current_theme)
     echo "Thème actuel: '$current_theme'"
-    find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.bmp" -o -iname "*.gif" -o -iname "*.webp" \) |
+    find "$WALLPAPER_DIR" -follow -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.bmp" -o -iname "*.gif" -o -iname "*.webp" \) |
         grep -i "$current_theme" |
         while read -r img; do
             echo "$(</dev/urandom tr -dc a-zA-Z0-9 | head -c 8):$img"
