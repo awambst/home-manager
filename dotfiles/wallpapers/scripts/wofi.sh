@@ -23,7 +23,7 @@ while true; do
     FOLDER_OPTION="Ajouter/supprimer"
 
     # List files in the wallpaper directory and add auto option
-    WALLPAPER_LIST=$(find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.bmp" -o -iname "*.gif" -o -iname "*.webp" \))
+    WALLPAPER_LIST=$(find "$WALLPAPER_DIR" -follow -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.bmp" -o -iname "*.gif" -o -iname "*.webp" \))
     SELECTED=$(echo "$WALLPAPER_LIST" | xargs -n 1 basename | (
         echo "$AUTO_OPTION";
         echo "$THEME_OPTION";
