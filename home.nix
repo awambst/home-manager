@@ -53,7 +53,10 @@ in
       source = ./dotfiles/waybar;
       recursive = true;
     };
-
+    ".config/hypr" = {
+      source = ./dotfiles/hypr;
+      recursive = true;
+    };
     ".config/wallpapers" = {
       source = ./dotfiles/wallpapers;
       recursive = true;
