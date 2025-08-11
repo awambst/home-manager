@@ -1,0 +1,30 @@
+# ~/.config/wofi/config
+
+# Show wofi in dmenu mode (horizontal text entry, vertical list)
+mode = drun
+
+# Always center the window
+location = right
+
+# Set width/height (in pixels)
+width = 250
+height = 900
+
+# Automatically select if only one result
+auto-select = true
+
+# Hide search field if not needed
+hide_search = false
+
+# Prompt text (top left)
+prompt =
+
+# Allow fuzzy matching
+allow_markup = true
+allow_images = true
+
+# Lines displayed
+lines = 20
+
+# Font (can be system-wide or customized via GTK theme)
+# font = "JetBrainsMono Nerd Font 10"
