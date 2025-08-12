@@ -53,12 +53,7 @@ in
       source = ./dotfiles/waybar;
       recursive = true;
     };
-    
-    ".config/hypr" = {
-      source = ./dotfiles/hypr;
-      recursive = true;
-    };
-    
+
     ".config/wofi" = {
       source = ./dotfiles/wofi;
       recursive = true;
@@ -66,6 +61,31 @@ in
 
     ".config/wallpapers" = {
       source = ./dotfiles/wallpapers;
+      recursive = true;
+    };
+
+    ".config/hypr/input.conf".text = ''
+      # https://wiki.hyprland.org/Configuring/Variables/#input
+      input {
+          kb_layout = ${if info.keyboard == "fr" then "fr" else "us"}
+          kb_variant =
+          kb_model =
+          kb_options =
+          kb_rules =
+
+          follow_mouse = 1
+
+          sensitivity = -0.3 #1.0 - 1.0, 0 means no modification.
+          accel_profile = flat    
+          numlock_by_default = true
+
+          touchpad {
+              natural_scroll = true
+          }
+      }'';
+    
+    ".config/hypr" = {
+      source = ./dotfiles/hypr;
       recursive = true;
     };
 
