@@ -1,0 +1,56 @@
+[env]
+TERM = "xterm-256color"
+
+[window]
+padding.x = 5
+padding.y = 5
+
+decorations = "Buttonless"
+
+opacity = 0.99
+blur = true
+
+option_as_alt = "Both"
+
+[font]
+#family = "Cousine"#"MesloLGS Nerd Font Mono"
+size = 10
+
+[font.bold]
+family = "monospace"
+style = "Bold"
+
+[font.bold_italic]
+family = "monospace"
+style = "Bold Italic"
+
+[font.italic]
+family = "monospace"
+style = "Italic"
+
+[font.normal]
+family = "Cousine"
+style = "Regular"
+
+
+[general]
+import = [
+    "~/.config/alacritty/themes/themes/coolnight.toml"
+]
+
+[keyboard]
+bindings = [
+   { key = "Return", mods = "Shift|Super", action = "SpawnNewInstance" }
+]
+
+
+
+#[[hints.enabled]]
+#regex = "[^\\s]+\\.(java):\\[\\d+,\\d+\\]"
+#command = { program = "bash", args = ["-c", "f=$(echo $0 | cut -d: -f1); l=$(echo $0 | grep -o '\\[\\d\\+' | tr -d '['); alacritty -e nvim +$l $f"] }
+#mouse = { enabled = true }
+
+[[hints.enabled]]
+regex = "[^\\s]+\\.(rs|java):\\[\\d+,\\d+\\]"
+command = { program = "bash", args = ["-c", "f=$(echo $0 | cut -d: -f1); pos=$(echo $0 | sed 's/.*\\[\\([0-9]*\\),\\([0-9]*\\)\\].*/\\1,\\2/'); alacritty -e nvim \"+call cursor($pos)\" $f"] }
+mouse = { enabled = true }

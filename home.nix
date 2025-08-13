@@ -60,10 +60,16 @@ in
       recursive = true;
     };
 
+    ".config/alacritty" = {
+      source = ./dotfiles/alacritty;
+      recursive = true;
+    };
+
     ".config/wallpapers" = {
       source = ./dotfiles/wallpapers;
       recursive = true;
     };
+
     ".config/hypr/screens.conf".text = "${info.screens}";
     ".config/hypr/input.conf".text = ''
       # https://wiki.hyprland.org/Configuring/Variables/#input
