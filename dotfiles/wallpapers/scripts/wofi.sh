@@ -50,7 +50,8 @@ while true; do
             FULL_PATH=$(echo "$WALLPAPER_LIST" | grep "/$SELECTED$")
             # Set the selected wallpaper using swww
             #   swww img --transition-fps 60 --transition-type grow --transition-duration 2 --invert-y --transition-pos "$(hyprctl cursorpos | grep -E '^[0-9]' || echo "0,0")" "$WALLPAPER_DIR/$SELECTED"
-            swww img --transition-fps 60 --transition-type grow --transition-duration 0.5 --transition-bezier 1,0.9,1,0.7 --invert-y --transition-pos "$(hyprctl cursorpos | grep -E '^[0-9]' || echo "0,0")" "$FULL_PATH"
+            screen=hyprctl monitors -j | jq -r '.[] | select(.focused == true) | .name'
+            swww img --transition-fps 60 --transition-type grow --transition-duration 0.5 --transition-bezier 1,0.9,1,0.7 --invert-y --transition-pos "$(hyprctl cursorpos | grep -E '^[0-9]' || echo "0,0")" "$FULL_PATH" --outputs "$screen"
         fi
     else
         # Exit the loop if no selection is made (e.g., user closes wofi or presses ESC)
