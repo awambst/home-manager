@@ -90,7 +90,7 @@ in
               natural_scroll = true
           }
       }'';
-      ".config/hypr/workspace.conf".text = ''
+      ".config/hypr/workspaces.conf".text = ''
     # Switch workspaces with mainMod + [0-9]
 bind = $mainMod, ${if info.keyboard == "fr" then "ampersand" else "1"}, workspace, 1
 bind = $mainMod, ${if info.keyboard == "fr" then "eacute" else "2"}, workspace, 2
