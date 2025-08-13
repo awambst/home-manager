@@ -5,4 +5,5 @@
   # prenom = "Prenom";
   # mail = "mon.email@genial.com";
   # keyboard = "us" ou "fr";
+  # screens = "";
 }

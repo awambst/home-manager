@@ -64,7 +64,7 @@ in
       source = ./dotfiles/wallpapers;
       recursive = true;
     };
-
+    ".config/hypr/screens.conf".text = "${info.screens}";
     ".config/hypr/input.conf".text = ''
       # https://wiki.hyprland.org/Configuring/Variables/#input
       input {
