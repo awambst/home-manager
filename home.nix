@@ -165,6 +165,8 @@ bind = $mainMod SHIFT, ${if info.keyboard == "fr" then "agrave" else "0"}, movet
         s = "!f() { git status -sb; }; f"
         st = "!f() { git status; }; f"
         f = "!f() { git fetch; }; f"
+      [include]
+        path = .gitconfig_imported
     '';
 
   };
