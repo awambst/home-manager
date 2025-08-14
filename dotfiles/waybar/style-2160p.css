@@ -26,7 +26,7 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: Roboto;/*FontAwesome, Roboto, Helvetica, Arial, sans-serif;*/
-    font-size: 23px;
+    font-size: 30px;
 }
 
 window#waybar {
@@ -223,7 +223,7 @@ label:focus {
 
 #memory {
     background-color: @bg_main;
-    min-width:  30px;
+    min-width:  40px;
     margin: 0;
     padding: 7px;
 }
@@ -250,7 +250,7 @@ label:focus {
 
 #network {
     background-color: @bg_main;
-    min-width:  30px;
+    min-width:  60px;
     margin: 0px;
     padding: 0px 3px 0px 15px;
     border-radius: 20px 0px 0px 20px;
@@ -258,7 +258,7 @@ label:focus {
 
 #network.disconnected {
     background: radial-gradient(ellipse at center, #ee3333, @bg_main);
-    min-width:  30px;
+    min-width:  60px;
     margin: 0px;
     padding: 0px 3px 0px 15px;
     border-radius: 20px 0px 0px 20px;
@@ -267,7 +267,7 @@ label:focus {
 #pulseaudio {
     background: radial-gradient(ellipse at center, #ee3333, @bg_alt);
     color: #ffffff;
-    min-width:  50px;
+    min-width:  100px;
     margin: 0;
     padding: 0px 0px 0px 0px;
     border-radius: 20px 0px 0px 20px;
@@ -276,7 +276,7 @@ label:focus {
 #pulseaudio.muted {
     background: linear-gradient(to left, @bg_alt, @bg_main);
     color: #7aac75;
-    min-width: 50px;
+    min-width: 100px;
     margin: 0px;
     padding: 0px 0px 0px 10px;
     border-radius: 20px 0px 0px 20px;
@@ -308,7 +308,7 @@ label:focus {
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #temperature {
     background-color: @bg_main;
-    min-width: 50px;
+    min-width: 100px;
     margin: 0px;
     padding: 0px;
 }
@@ -321,13 +321,14 @@ label:focus {
     animation-timing-function: steps(12);
     animation-iteration-count: infinite;
     animation-direction: alternate;
-    min-width: 50px;
+    min-width: 100px;
     margin: 0px;
     padding: 0px;
 }
 
 #tray {
     background-color: transparent;
+    min-width: 50px;
 }
 
 #tray:hover {
@@ -423,7 +424,7 @@ label:focus {
 }
 #custom-power {
     background: linear-gradient(to right, @bg_main, #2380b9);
-    min-width:  50px;
+    min-width:  100px;
     margin: 0px;
     padding: 0px 3px 0px 3px;
     border-radius: 0px 0px 0px 0px;
@@ -433,7 +434,7 @@ label:focus {
 }
 
 #taskbar button {
-    min-width: 30px;
+    min-width: 60px;
 	border-bottom: 3px solid rgba(255, 255, 255, 0.3);
 	margin-left: 2px;
 	margin-right: 2px;
@@ -465,12 +466,12 @@ label:focus {
 
 #custom-os-button {
     background: linear-gradient(to left, @bg_main, #2380b9);
-    min-width:  50px;
+    min-width:  100px;
     margin: 0px;
     padding: 0px 3px 0px 3px;
     border-radius: 0px;
     font-family: "JetBrainsMono Nerd Font";
-    font-size: 24px;
+    font-size: 48px;
 	/*transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);*/
 }
 #custom-os-button:hover {

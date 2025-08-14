@@ -5,6 +5,7 @@
     "height": 32, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 0, // Gaps between modules (4px)
+    //"icon-size": 10,
 
     // Choose the order of the modules
     "modules-left": [
@@ -113,7 +114,7 @@
         }
     },
     "tray": {
-        // "icon-size": 21,
+        "icon-size": 25,
         "spacing": 10,
         "show-passive-items": false
     },

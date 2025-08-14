@@ -328,6 +328,7 @@ label:focus {
 
 #tray {
     background-color: transparent;
+    min-width: 25px;
 }
 
 #tray:hover {
