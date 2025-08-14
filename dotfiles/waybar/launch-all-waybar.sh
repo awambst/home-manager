@@ -27,7 +27,7 @@ while IFS= read -r monitor; do
         echo "  → Moniteur $monitor_count: $monitor"
         config_temp="/tmp/waybar_configs/config_${monitor}.jsonc"
         cp "$CONFIG_DIR/config.jsonc" "$config_temp"
-        sed -i "2i\\    \"output\": \"$monitor\"," "$config_temp"
+        sed -i "3i\\    \"output\": \"$monitor\"," "$config_temp"
         waybar --config "$config_temp" &
         sleep 0.3
     fi
