@@ -26,7 +26,7 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: Roboto;/*FontAwesome, Roboto, Helvetica, Arial, sans-serif;*/
-    font-size: 15px;
+    font-size: 23px;
 }
 
 window#waybar {
@@ -85,7 +85,7 @@ button:hover {
 }
 
 #workspaces button {
-    padding: 3px;
+    padding: 5px;
     color: @content_inactive;
 	transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
@@ -156,7 +156,7 @@ button:hover {
 #battery {
     background-color: @bg_main;
     color: #ffffff;
-    min-width:  20px;
+    min-width:  30px;
     margin: 0;
     padding: 5px;
 }
@@ -216,7 +216,7 @@ label:focus {
 #cpu {
     background-color: @bg_main;
     color: #ffffff;
-    min-width:  30px;
+    min-width:  45px;
     margin: 0;
     padding: 7px;
 }
