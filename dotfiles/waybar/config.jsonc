@@ -5,6 +5,7 @@
     "height": 32, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 0, // Gaps between modules (4px)
+
     // Choose the order of the modules
     "modules-left": [
         "custom/os-button",
@@ -26,12 +27,12 @@
     "modules-right": [
         //"mpd",
         //"idle_inhibitor",
+        "keyboard-state",
         "network",
         "power-profiles-daemon",
         "cpu",
         "memory",
         "temperature",
-        "keyboard-state",
         "sway/language",
         "battery",
         "battery#bat2",
@@ -45,19 +46,18 @@
         "format-window-separator": "  ",
         "window-rewrite-default": "<big></big>",
         "window-rewrite": {
-            "title<.*youtube.*>": "", // Windows whose titles contain "youtube"
-            "class<firefox>": "<big></big>", // Windows whose classes are "firefox"
-            "class<firefox> title<.*github.*>": "", // Windows whose class is "firefox" and title contains "github". Note that "class" always comes first.
+            "youtube": "", // Windows whose titles contain "youtube"
+            "firefox": "<big></big>", // Windows whose classes are "firefox"
             "foot": "", // Windows that contain "foot" in either class or title. For optimization reasons, it will only match against a title if at least one other window explicitly matches against a title.
             "code": "󰨞",
-            "class<alacritty>": "",
-            "class<vesktop>": "<big></big>",
-            "class<discord>": "",
-            "class<steam>": ""
+            "alacritty": "",
+            "vesktop": "<big></big>",
+            "discord": "",
+            "steam": ""
         }
     },
     "keyboard-state": {
-        "numlock": true,
+        "numlock": false,
         "capslock": true,
         "format": "{name} {icon}",
         "format-icons": {
@@ -322,7 +322,7 @@
         "menu-actions": {
             "shutdown": "$HOME/.config/waybar/power_confirm.sh shutdown",
             "reboot": "$HOME/.config/waybar/power_confirm.sh reboot",
-            "suspend": "systemctl suspend",
+            //"suspend": "systemctl suspend",
             "lock": "hyprlock",
             "logout": "$HOME/.config/waybar/power_confirm.sh logout"
         }

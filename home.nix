@@ -49,6 +49,7 @@ in
       recursive = true;
     };
 
+
     ".config/wofi" = {
       source = ./dotfiles/wofi;
       recursive = true;
