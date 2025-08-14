@@ -142,7 +142,7 @@ button:hover {
 /* If workspaces is the leftmost module, omit left margin */
 #workspaces button:last-child {
     border-radius: 0 10px 10px 0;
-    margin-right: 20px;
+    margin-right: 40px;
 }
 
 
@@ -328,7 +328,10 @@ label:focus {
 
 #tray {
     background-color: transparent;
-    min-width: 50px;
+    min-width: 100px;
+    min-height: 50px;
+    margin: 0px;
+    padding: 0px;
 }
 
 #tray:hover {

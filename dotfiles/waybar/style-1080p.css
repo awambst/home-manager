@@ -328,6 +328,10 @@ label:focus {
 
 #tray {
     background-color: transparent;
+    min-width: 50px;
+    min-height: 25px;
+    margin: 0px;
+    padding: 0px;
 }
 
 #tray:hover {
