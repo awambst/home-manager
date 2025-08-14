@@ -3,6 +3,9 @@
   # login = "prenom.nom";
   # nom = "Nom";
   # prenom = "Prenom";
+  # git_signing = "false"; # permet a git de signer les commits et tag, creer et
+                         # stocker une cle ssh dans ~/.ssh/keys/id_rsa_sign.pub
+                         # avant !
   # mail = "mon.email@genial.com";
   # keyboard = "us" ou "fr";
   # screens = "";
