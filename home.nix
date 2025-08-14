@@ -120,12 +120,6 @@ bind = $mainMod SHIFT, ${if info.keyboard == "fr" then "agrave" else "0"}, movet
       recursive = true;
     };
 
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
-
     ".gitconfig".text = ''
       [user]
         email = "${info.mail}"
