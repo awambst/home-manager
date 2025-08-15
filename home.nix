@@ -49,6 +49,9 @@ in
       recursive = true;
     };
 
+    ".bashrc".text = ''
+      export PS1="\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]$ "
+    '';
 
     ".config/wofi" = {
       source = ./dotfiles/wofi;
@@ -59,7 +62,7 @@ in
       source = ./dotfiles/alacritty;
       recursive = true;
     };
-    
+
     ".config/mako" = {
       source = ./dotfiles/mako;
       recursive = true;
@@ -90,31 +93,69 @@ in
               natural_scroll = true
           }
       }'';
-      ".config/hypr/workspaces.conf".text = ''
-    # Switch workspaces with mainMod + [0-9]
-bind = $mainMod, ${if info.keyboard == "fr" then "ampersand" else "1"}, workspace, 1
-bind = $mainMod, ${if info.keyboard == "fr" then "eacute" else "2"}, workspace, 2
-bind = $mainMod, ${if info.keyboard == "fr" then "quotedbl" else "3"}, workspace, 3
-bind = $mainMod, ${if info.keyboard == "fr" then "apostrophe" else "4"}, workspace, 4
-bind = $mainMod, ${if info.keyboard == "fr" then "parenleft" else "5"}, workspace, 5
-bind = $mainMod, ${if info.keyboard == "fr" then "minus" else "6"}, workspace, 6
-bind = $mainMod, ${if info.keyboard == "fr" then "egrave" else "7"}, workspace, 7
-bind = $mainMod, ${if info.keyboard == "fr" then "underscore" else "8"}, workspace, 8
-bind = $mainMod, ${if info.keyboard == "fr" then "ccedilla" else "9"}, workspace, 9
-bind = $mainMod, ${if info.keyboard == "fr" then "agrave" else "0"}, workspace, 10
+    ".config/hypr/workspaces.conf".text = ''
+          # Switch workspaces with mainMod + [0-9]
+      bind = $mainMod, ${
+        if info.keyboard == "fr" then "ampersand" else "1"
+      }, workspace, 1
+      bind = $mainMod, ${
+        if info.keyboard == "fr" then "eacute" else "2"
+      }, workspace, 2
+      bind = $mainMod, ${
+        if info.keyboard == "fr" then "quotedbl" else "3"
+      }, workspace, 3
+      bind = $mainMod, ${
+        if info.keyboard == "fr" then "apostrophe" else "4"
+      }, workspace, 4
+      bind = $mainMod, ${
+        if info.keyboard == "fr" then "parenleft" else "5"
+      }, workspace, 5
+      bind = $mainMod, ${if info.keyboard == "fr" then "minus" else "6"}, workspace, 6
+      bind = $mainMod, ${
+        if info.keyboard == "fr" then "egrave" else "7"
+      }, workspace, 7
+      bind = $mainMod, ${
+        if info.keyboard == "fr" then "underscore" else "8"
+      }, workspace, 8
+      bind = $mainMod, ${
+        if info.keyboard == "fr" then "ccedilla" else "9"
+      }, workspace, 9
+      bind = $mainMod, ${
+        if info.keyboard == "fr" then "agrave" else "0"
+      }, workspace, 10
 
-# Move active window to a workspace with mainMod + SHIFT + [0-9] and DONT go there
-bind = $mainMod SHIFT, ${if info.keyboard == "fr" then "ampersand" else "1"}, movetoworkspacesilent, 1
-bind = $mainMod SHIFT, ${if info.keyboard == "fr" then "eacute" else "2"}, movetoworkspacesilent, 2
-bind = $mainMod SHIFT, ${if info.keyboard == "fr" then "quotedbl" else "3"}, movetoworkspacesilent, 3
-bind = $mainMod SHIFT, ${if info.keyboard == "fr" then "apostrophe" else "4"}, movetoworkspacesilent, 4
-bind = $mainMod SHIFT, ${if info.keyboard == "fr" then "parenleft" else "5"}, movetoworkspacesilent, 5
-bind = $mainMod SHIFT, ${if info.keyboard == "fr" then "minus" else "6"}, movetoworkspacesilent, 6
-bind = $mainMod SHIFT, ${if info.keyboard == "fr" then "egrave" else "7"}, movetoworkspacesilent, 7
-bind = $mainMod SHIFT, ${if info.keyboard == "fr" then "underscore" else "8"}, movetoworkspacesilent, 8
-bind = $mainMod SHIFT, ${if info.keyboard == "fr" then "ccedilla" else "9"}, movetoworkspacesilent, 9
-bind = $mainMod SHIFT, ${if info.keyboard == "fr" then "agrave" else "0"}, movetoworkspacesilent, 10'';
-    
+      # Move active window to a workspace with mainMod + SHIFT + [0-9] and DONT go there
+      bind = $mainMod SHIFT, ${
+        if info.keyboard == "fr" then "ampersand" else "1"
+      }, movetoworkspacesilent, 1
+      bind = $mainMod SHIFT, ${
+        if info.keyboard == "fr" then "eacute" else "2"
+      }, movetoworkspacesilent, 2
+      bind = $mainMod SHIFT, ${
+        if info.keyboard == "fr" then "quotedbl" else "3"
+      }, movetoworkspacesilent, 3
+      bind = $mainMod SHIFT, ${
+        if info.keyboard == "fr" then "apostrophe" else "4"
+      }, movetoworkspacesilent, 4
+      bind = $mainMod SHIFT, ${
+        if info.keyboard == "fr" then "parenleft" else "5"
+      }, movetoworkspacesilent, 5
+      bind = $mainMod SHIFT, ${
+        if info.keyboard == "fr" then "minus" else "6"
+      }, movetoworkspacesilent, 6
+      bind = $mainMod SHIFT, ${
+        if info.keyboard == "fr" then "egrave" else "7"
+      }, movetoworkspacesilent, 7
+      bind = $mainMod SHIFT, ${
+        if info.keyboard == "fr" then "underscore" else "8"
+      }, movetoworkspacesilent, 8
+      bind = $mainMod SHIFT, ${
+        if info.keyboard == "fr" then "ccedilla" else "9"
+      }, movetoworkspacesilent, 9
+      bind = $mainMod SHIFT, ${
+        if info.keyboard == "fr" then "agrave" else "0"
+      }, movetoworkspacesilent, 10'';
+
     ".config/hypr" = {
       source = ./dotfiles/hypr;
       recursive = true;

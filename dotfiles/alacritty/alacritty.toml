@@ -1,15 +1,14 @@
 [env]
 TERM = "xterm-256color"
+COLORTERM = "truecolor"
 
 [window]
 padding.x = 5
-padding.y = 5
-
+padding.y = 0
+dynamic_padding = true
 decorations = "Buttonless"
-
 opacity = 0.99
 blur = true
-
 option_as_alt = "Both"
 
 [font]
@@ -17,19 +16,19 @@ option_as_alt = "Both"
 size = 10
 
 [font.bold]
-family = "monospace"
+family = "JetBrainsMono NFM"
 style = "Bold"
 
 [font.bold_italic]
-family = "monospace"
+family = "JetBrainsMono NFM"
 style = "Bold Italic"
 
 [font.italic]
-family = "monospace"
+family = "JetBrainsMono NFM"
 style = "Italic"
 
 [font.normal]
-family = "Cousine"
+family = "JetBrainsMono NFM"
 style = "Regular"
 
 
@@ -40,10 +39,42 @@ import = [
 
 [keyboard]
 bindings = [
-   { key = "Return", mods = "Shift|Super", action = "SpawnNewInstance" }
+   { key = "Return", mods = "Shift|Super", action = "SpawnNewInstance" },
+    { key = "Plus", mods = "Shift|Super", action = "IncreaseFontSize" },
+    { key = "_", mods = "Shift|Super", action = "DecreaseFontSize" },
+    { key = "=", mods = "Super", action = "ResetFontSize" }
 ]
 
+[colors]
+draw_bold_text_with_bright_colors = true
 
+[colors.cursor]
+text = '#000000'
+cursor = '#ffffff'
+
+[colors.selection]
+text = '#000000'
+background = '#fffacd'
+
+[colors.primary]
+    background = '#000000'
+    foreground = '#e0e0e0'
+
+[colors.normal]
+    black =   '#3f3f3f'
+    red =     '#b06060'
+    green =   '#60b47a'
+    yellow =  '#dfaf8f'
+    blue =    '#506080'
+    magenta = '#dc9cc3'
+    cyan =    '#8cd0d8'
+    white =   '#ffffff'
+
+[mouse]
+hide_when_typing = true
+
+[selection]
+save_to_clipboard = true
 
 #[[hints.enabled]]
 #regex = "[^\\s]+\\.(java):\\[\\d+,\\d+\\]"
