@@ -44,6 +44,9 @@ for i in "${!monitors_array[@]}"; do
     if ((height > 70)); then
         sed -i 's/"icon-size": 25,/"icon-size": 50,/' "$config_temp"
         waybar --config "$config_temp" --style "$CONFIG_DIR/style-2160p.css" &
+    elif ((height < 30)); then
+        sed -i 's/"icon-size": 25,/"icon-size": 18,/' "$config_temp"
+        waybar --config "$config_temp" --style "$CONFIG_DIR/style-720p.css" &
     else
         waybar --config "$config_temp" --style "$CONFIG_DIR/style-1080p.css" &
     fi

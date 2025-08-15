@@ -26,7 +26,7 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: Roboto;/*FontAwesome, Roboto, Helvetica, Arial, sans-serif;*/
-    font-size: 15px;
+    font-size: 11px;
 }
 
 window#waybar {
@@ -141,7 +141,7 @@ button:hover {
 
 /* If workspaces is the leftmost module, omit left margin */
 #workspaces button:last-child {
-    border-radius: 0 5px 5px 0;
+    border-radius: 0 3px 3px 0;
     margin-right: 20px;
 }
 
@@ -216,20 +216,20 @@ label:focus {
 #cpu {
     background-color: @bg_main;
     color: #ffffff;
-    min-width:  30px;
+    min-width:  22px;
     margin: 0;
     padding: 7px;
 }
 
 #memory {
     background-color: @bg_main;
-    min-width:  30px;
+    min-width:  22px;
     margin: 0;
     padding: 7px;
 }
 #memory.notok {
     background-color: #9b59b6;
-    min-width:  30px;
+    min-width:  22px;
     margin: 0;
     padding: 7px;
 }
@@ -242,7 +242,7 @@ label:focus {
 
 #backlight {
     background-color: @bg_alt;
-    min-width:  50px;
+    min-width:  35px;
     margin: 0px 0px 0px 0px;
     padding: 0px 3px 0px 3px;
     border-radius: 0px 20px 20px 0px;
@@ -250,36 +250,36 @@ label:focus {
 
 #network {
     background-color: @bg_main;
-    min-width:  30px;
+    min-width:  22px;
     margin: 0px;
     padding: 0px 3px 0px 15px;
-    border-radius: 10px 0px 0px 10px;
+    border-radius: 7px 0px 0px 7px;
 }
 
 #network.disconnected {
     background: radial-gradient(ellipse at center, #ee3333, @bg_main);
-    min-width:  30px;
+    min-width:  22px;
     margin: 0px;
     padding: 0px 3px 0px 15px;
-    border-radius: 20px 0px 0px 20px;
+    border-radius: 7px 0px 0px 7px;
 }
 
 #pulseaudio {
     background: radial-gradient(ellipse at center, #ee3333, @bg_alt);
     color: #ffffff;
-    min-width:  50px;
+    min-width:  35px;
     margin: 0;
     padding: 0px 0px 0px 0px;
-    border-radius: 10px 0px 0px 10px;
+    border-radius: 7px 0px 0px 7px;
 }
 
 #pulseaudio.muted {
     background: linear-gradient(to left, @bg_alt, @bg_main);
     color: #7aac75;
-    min-width: 50px;
+    min-width: 35px;
     margin: 0px;
     padding: 0px 0px 0px 10px;
-    border-radius: 20px 0px 0px 20px;
+    border-radius: 7px 0px 0px 7px;
 }
 
 #wireplumber {
@@ -308,7 +308,7 @@ label:focus {
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #temperature {
     background-color: @bg_main;
-    min-width: 50px;
+    min-width: 35px;
     margin: 0px;
     padding: 0px;
 }
@@ -321,15 +321,15 @@ label:focus {
     animation-timing-function: steps(12);
     animation-iteration-count: infinite;
     animation-direction: alternate;
-    min-width: 50px;
+    min-width: 35px;
     margin: 0px;
     padding: 0px;
 }
 
 #tray {
     background-color: transparent;
-    min-width: 50px;
-    min-height: 25px;
+    min-width: 35px;
+    min-height: 20px;
     margin: 0px;
     padding: 0px;
 }
@@ -427,7 +427,7 @@ label:focus {
 }
 #custom-power {
     background: linear-gradient(to right, @bg_main, #2380b9);
-    min-width:  50px;
+    min-width:  35px;
     margin: 0px;
     padding: 0px 3px 0px 3px;
     border-radius: 0px 0px 0px 0px;
@@ -437,7 +437,7 @@ label:focus {
 }
 
 #taskbar button {
-    min-width: 30px;
+    min-width: 22px;
 	border-bottom: 3px solid rgba(255, 255, 255, 0.3);
 	margin-left: 2px;
 	margin-right: 2px;
@@ -469,7 +469,7 @@ label:focus {
 
 #custom-os-button {
     background: linear-gradient(to left, @bg_main, #2380b9);
-    min-width:  50px;
+    min-width:  35px;
     margin: 0px;
     padding: 0px 3px 0px 3px;
     border-radius: 0px;
@@ -483,7 +483,7 @@ label:focus {
 
 #backlight-slider {
     min-height: 0px;
-    min-width: 60px;
+    min-width: 45px;
     opacity: 1;
     background: linear-gradient(to right, @bg_alt, @bg_main);
     border: none;
