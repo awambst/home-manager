@@ -77,7 +77,11 @@ in
       recursive = true;
     };
 
-    ".config/hypr/screens.conf".text = "${info.screens}";
+    ".config/hypr/screens.conf".text = ''
+      ${info.screens}
+      exec-once = hyprctl dispatch exec 'xrandr \
+      --output ${info.primary_screen} --primary'
+    '';
     ".config/hypr/input.conf".text = ''
       # https://wiki.hyprland.org/Configuring/Variables/#input
       input {

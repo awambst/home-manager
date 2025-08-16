@@ -16,6 +16,6 @@
     # "
     # monitor = DP-1, 1920x1080@280, 0x0, 1
     # monitor = DP-2, 3840x2160@60, 1920x0, 1 
-    # exec-once = hyprctl dispatch exec 'xrandr --output DP-1 --primary'
     # ";
+  # primary_screen = "DP-1"
 }
