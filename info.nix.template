@@ -9,4 +9,13 @@
   # mail = "mon.email@genial.com";
   # keyboard = "us" ou "fr";
   # screens = "";
+    # ex config for 2 screens, with DP-1 on left and DP-2 on right
+    # I want to run my games mainly on DP-1, so setting it as primary monitor
+    # so games start using its resolutions
+    # To set up your screens, check 'hyprctl monitors'
+    # "
+    # monitor = DP-1, 1920x1080@280, 0x0, 1
+    # monitor = DP-2, 3840x2160@60, 1920x0, 1 
+    # hyprctl dispatch exec xrandr --output DP-1 --primary
+    # ";
 }
