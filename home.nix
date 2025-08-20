@@ -77,10 +77,32 @@ in
       recursive = true;
     };
 
+    ".config/hypr/hypridle.conf".text = ''
+      general {
+          lock_cmd = pidof hyprlock || hyprlock	# dbus/sysd lock command (loginctl lock-session)
+          unlock_cmd = notify-send "unlock!"      # same as above, but unlock
+          before_sleep_cmd = loginctl lock-session     # command ran before sleep
+          #after_sleep_cmd = hyprctl dispatch dpms on   # command ran after sleep
+          #ignore_dbus_inhibit = false             # whether to ignore dbus-sent idle-inhibit requests (used by e.g. firefox or steam)
+          #ignore_systemd_inhibit = false          # whether to ignore systemd-inhibit --what=idle inhibitors
+      }
+
+      listener {
+          timeout = 120
+          on-timeout = loginctl lock-session		
+          on-resume = hyprctl dispatch exec 'xrandr --output ${info.primary_screen} --primary' 
+      }
+
+      listener {
+          timeout = 180                                # 2.5min
+          on-timeout = hyprctl dispatch exec 'light > .cache/light' && hyprctl dispatch dpms off        # screen off when timeout has passed
+          on-resume = hyprctl dispatch dpms on && hyprctl dispatch exec 'light -S $(cat .cache/light)' && hyprctl dispatch exec 'rm .cache/light'          # screen on when activity is detected after timeout has fired.
+      }
+    '';
+
     ".config/hypr/screens.conf".text = ''
       ${info.screens}
-      exec-once = hyprctl dispatch exec 'xrandr \
-      --output ${info.primary_screen} --primary'
+      exec-once = hyprctl dispatch exec 'xrandr --output ${info.primary_screen} --primary'
     '';
     ".config/hypr/input.conf".text = ''
       # https://wiki.hyprland.org/Configuring/Variables/#input
