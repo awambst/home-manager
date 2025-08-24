@@ -103,6 +103,7 @@ in
     ".config/hypr/screens.conf".text = ''
       ${info.screens}
       exec-once = hyprctl dispatch exec 'xrandr --output ${info.primary_screen} --primary'
+      workspace = 5, monitor:${info.primary_screen}
     '';
     ".config/hypr/input.conf".text = ''
       # https://wiki.hyprland.org/Configuring/Variables/#input
