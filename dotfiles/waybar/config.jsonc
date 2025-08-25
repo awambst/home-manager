@@ -6,7 +6,6 @@
     // "width": 1280, // Waybar width
     "spacing": 0, // Gaps between modules (4px)
     //"icon-size": 10,
-
     // Choose the order of the modules
     "modules-left": [
         "custom/os-button",
@@ -14,7 +13,7 @@
         "hyprland/workspaces",
         "hyprland/submap",
         "sway/scratchpad",
-        "custom/media",
+        //"custom/media",
         "tray"
         //"wlr/taskbar"
     ],
@@ -23,7 +22,8 @@
         "pulseaudio",
         "clock",
         //"backlight",
-        "backlight/slider"
+        //"backlight/slider"
+        "custom/media"
     ],
     "modules-right": [
         //"mpd",
@@ -56,6 +56,19 @@
             "discord": "",
             "steam": ""
         }
+    },
+    "custom/media": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/music.sh",
+        "interval": 2,
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl next",
+        "on-click-middle": "playerctl previous",
+        "tooltip": true,
+        //"tooltip-format": "{tooltip}",
+        "on-scroll-up": "playerctl volume 0.05+",
+        "on-scroll-down": "playerctl volume 0.05-",
+        "return-type" : "json"
     },
     "keyboard-state": {
         "numlock": false,
@@ -142,7 +155,7 @@
             "on-scroll-up": "shift_up",
             "on-scroll-down": "shift_down"
         },
-        "format": " <b>{:%X}</b>",
+        "format": "<b>{:%X}</b>",
         /*  "tooltip-format": "<tt>{calendar}</tt>",
  */
         "interval": 1
@@ -303,7 +316,7 @@
         "tooltip-format": "{volume}% {icon}\nmb one day mic volume%",
         "on-click-right": "pavucontrol"
     },
-    "custom/media": {
+    /*"custom/media": {
         "format": "{icon} {text}",
         "return-type": "json",
         "max-length": 40,
@@ -314,7 +327,7 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    },
+    },*/
     "custom/power": {
         "format": "⏻ ",
         "tooltip": false,

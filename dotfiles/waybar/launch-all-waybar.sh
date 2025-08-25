@@ -27,7 +27,7 @@ if [[ ${#monitors_array[@]} -eq 0 ]]; then
     waybar &
     exit 0
 fi
-
+rm -rf /tmp/waybar_configs
 mkdir -p /tmp/waybar_configs
 monitor_count=0
 

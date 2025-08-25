@@ -292,10 +292,17 @@ label:focus {
 }
 
 #custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
-    min-width: 100px;
+    background-color: @bg_alt;
+    color: #ffffff;
+    min-width: 50px;
+    padding: 0px 0px 0px 0px;
+    border-radius: 0px 20px 20px 0px; 
 }
+
+tooltip {
+    font-size: 8px;
+}
+
 
 #custom-media.custom-spotify {
     background-color: #66cc99;
