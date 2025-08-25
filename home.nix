@@ -103,12 +103,7 @@ in
     ".config/hypr/screens.conf".text = ''
       ${info.screens}
       exec-once = hyprctl dispatch exec 'xrandr --output ${info.primary_screen} --primary'
-
-      plugin {
-        xwaylandprimary {
-          display = ${info.primary_screen}
-        }
-      }
+      workspace = 5, monitor:${info.primary_screen}
     '';
     ".config/hypr/input.conf".text = ''
       # https://wiki.hyprland.org/Configuring/Variables/#input
