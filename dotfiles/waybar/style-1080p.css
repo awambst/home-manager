@@ -88,7 +88,9 @@ button:hover {
     padding: 3px;
     color: @content_inactive;
 	transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+    font-size: 30px;
 }
+
 
 #workspaces button.visible{
     color: rgba(255, 255, 255, 1);
@@ -105,6 +107,12 @@ button:hover {
 
 #workspaces button.urgent {
     background-color: #eb4d4b;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+#workspaces button:last-child {
+    border-radius: 0 5px 5px 0;
+    margin-right: 20px;
 }
 
 #mode {
@@ -135,15 +143,8 @@ button:hover {
 }
 
 #window,
-#workspaces {
-    margin: 0 0px;
-}
 
-/* If workspaces is the leftmost module, omit left margin */
-#workspaces button:last-child {
-    border-radius: 0 5px 5px 0;
-    margin-right: 20px;
-}
+
 
 
 

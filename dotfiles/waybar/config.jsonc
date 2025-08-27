@@ -41,20 +41,26 @@
     ],
     // Modules configuration
     "hyprland/workspaces": {
-        "icon-size": 32,
         "spacing": 16,
         "format": "<sub>{icon}</sub>  {windows}  ",
         "format-window-separator": "  ",
-        "window-rewrite-default": "<big></big>",
+        "window-rewrite-default": "",
         "window-rewrite": {
-            "youtube": "", // Windows whose titles contain "youtube"
-            "firefox": "<big></big>", // Windows whose classes are "firefox"
+            "class<firefox> title<.*- YouTube — Mozilla Firefox>": "",
+            "class<firefox> title<.*— Mozilla Firefox>": "", // pas oublier ce ptn de point avant les *
+            "class<firefox> title<Picture-in-Picture>": "󰐋",
+            "class<firefox>": "",
             "foot": "", // Windows that contain "foot" in either class or title. For optimization reasons, it will only match against a title if at least one other window explicitly matches against a title.
-            "code": "󰨞",
             "alacritty": "",
             "vesktop": "<big></big>",
             "discord": "",
-            "steam": ""
+            "steam": "",
+            "cs2": "󰍽",
+            "steam_app_252950": "󱓟",
+            "class<steam> title<Liste de contacts>": "󰀎",
+            "class<steam> title<>": "",
+            ".*jellyfin-media-player": "󰿏",
+            "thunar": ""
         }
     },
     "custom/media": {
@@ -68,7 +74,7 @@
         //"tooltip-format": "{tooltip}",
         "on-scroll-up": "playerctl volume 0.05+",
         "on-scroll-down": "playerctl volume 0.05-",
-        "return-type" : "json"
+        "return-type": "json"
     },
     "keyboard-state": {
         "numlock": false,
