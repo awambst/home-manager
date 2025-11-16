@@ -21,6 +21,7 @@ in
 
   home.packages = [
     pkgs.jq
+    pkgs.jellyfin-media-player
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
