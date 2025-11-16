@@ -24,6 +24,7 @@
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
         modules = [
+          ./modules/firefox.nix
           ./home.nix
         ];
 
