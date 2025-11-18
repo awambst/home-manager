@@ -76,6 +76,11 @@ in
         export PS1="\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]$ "
       fi
     '';
+    
+    ".config/i3" = {
+      source = ./dotfiles/i3;
+      recursive = true;
+    };
 
     ".config/wofi" = {
       source = ./dotfiles/wofi;
