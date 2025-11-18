@@ -82,6 +82,11 @@ in
       source = ./dotfiles/i3;
       recursive = true;
     };
+ 
+    ".cache/betterlockscreen" = {
+      source = ./dotfiles/betterlockscreen;
+      recursive = true;
+    };
 
     ".config/variety" = {
       source = ./dotfiles/variety;
