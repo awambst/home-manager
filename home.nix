@@ -10,6 +10,19 @@ in
   home.username = "${info.login}";
   home.homeDirectory = "/home/${info.login}";
 
+  # Enable the Flakes feature and the accompanying new nix command-line tool
+  #home.settings.experimental-features = [
+  #  "nix-command"
+  #   "flakes"
+  #];
+
+  nix = {
+    package = pkgs.nix;
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+    };
+  };
+
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -38,6 +51,12 @@ in
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+
+    pkgs.rofi 
+    pkgs.picom 
+    pkgs.feh 
+    pkgs.variety 
+    pkgs.scrot
   ];
 
   home.file = {
