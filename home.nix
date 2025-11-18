@@ -82,6 +82,17 @@ in
       source = ./dotfiles/i3;
       recursive = true;
     };
+
+    ".config/variety" = {
+      source = ./dotfiles/variety;
+      recursive = true;
+    };
+
+    ".config/lock" = {
+      source = ./dotfiles/lock;
+      recursive = true;
+    };
+
     
     ".config/rofi" = {
       source = ./dotfiles/rofi;
