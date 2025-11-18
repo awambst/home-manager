@@ -71,6 +71,11 @@ in
       source = ./dotfiles/waybar;
       recursive = true;
     };
+    
+    ".config/picom" = {
+      source = ./dotfiles/picom;
+      recursive = true;
+    };
 
     ".bashrc".text = ''
       if [ -n "$IN_NIX_SHELL" ]; then
