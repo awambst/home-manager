@@ -206,11 +206,8 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-set $mode_system System: (l) lock, (e) logout, (s) suspend, (r) reboot, (p) poweroff
+set $mode_system System: (r) reboot, (p) poweroff
 mode "$mode_system" {
-    bindsym l exec --no-startup-id i3lock -c 000000, mode "default"
-    bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id systemctl suspend, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym p exec --no-startup-id systemctl poweroff, mode "default"
     
