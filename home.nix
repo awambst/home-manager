@@ -57,6 +57,7 @@ in
     pkgs.feh 
     pkgs.variety 
     pkgs.scrot
+    pkgs.man-pages
   ];
 
   home.file = {
