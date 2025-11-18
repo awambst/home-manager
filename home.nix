@@ -82,6 +82,11 @@ in
       source = ./dotfiles/i3;
       recursive = true;
     };
+    
+    ".config/rofi" = {
+      source = ./dotfiles/rofi;
+      recursive = true;
+    };
 
     ".config/wofi" = {
       source = ./dotfiles/wofi;
