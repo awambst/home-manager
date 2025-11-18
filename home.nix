@@ -58,6 +58,8 @@ in
     pkgs.variety 
     pkgs.scrot
     pkgs.man-pages
+    pkgs.clang
+    pkgs.arandr
   ];
 
   home.file = {
