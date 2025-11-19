@@ -96,6 +96,8 @@ in
       showHelp=false
       showStartupLaunchMessage=false
       startupLaunch=true
+      buttons=@Variant(\0\0\0\x7f\0\0\0\vQList<int>\0\0\0\0\t\0\0\0\0\0\0\0\x5\0\0\0\x12\0\0\0\xf\0\0\0\b\0\0\0\t\0\0\0\n\0\0\0\v\0\0\0\f)
+      showSelectionGeometryHideTime=2997
     '';
 
     ".config/i3" = {
