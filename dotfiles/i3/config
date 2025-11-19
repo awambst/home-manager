@@ -45,7 +45,9 @@ font pango:monospace 8
 #font pango:DejaVu Sans Mono 8
 
 exec --no-startup-id picom -b
-exec --no-startup-id variety
+#exec --no-startup-id variety   # It already starts alone on startup, this only
+                                # make its gui open
+exec --no-startup-id flameshot
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -96,6 +98,9 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
+bindsym Print exec --no-startup-id flameshot gui
+bindsym $mod+Shift+s exec --no-startup-id flameshot gui
+
 
 # move focused window
 bindsym $mod+Shift+j move left

@@ -19,7 +19,10 @@ in
   nix = {
     package = pkgs.nix;
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
   };
 
@@ -52,14 +55,15 @@ in
     #   echo "Hello, ${config.home.username}!"
     # '')
 
-    pkgs.rofi 
-    pkgs.picom 
-    pkgs.feh 
-    pkgs.variety 
+    pkgs.rofi
+    pkgs.picom
+    pkgs.feh
+    pkgs.variety
     pkgs.scrot
     pkgs.man-pages
     pkgs.clang
     pkgs.arandr
+    pkgs.flameshot
   ];
 
   home.file = {
@@ -71,7 +75,7 @@ in
       source = ./dotfiles/waybar;
       recursive = true;
     };
-    
+
     ".config/picom" = {
       source = ./dotfiles/picom;
       recursive = true;
@@ -84,12 +88,21 @@ in
         export PS1="\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]$ "
       fi
     '';
-    
+
+    ".config/flameshot/flameshot.ini".text = ''
+      [General]
+      contrastOpacity=188
+      savePath=/home/${info.login}/Images/screens
+      showHelp=false
+      showStartupLaunchMessage=false
+      startupLaunch=true
+    '';
+
     ".config/i3" = {
       source = ./dotfiles/i3;
       recursive = true;
     };
- 
+
     ".cache/betterlockscreen" = {
       source = ./dotfiles/betterlockscreen;
       recursive = true;
@@ -105,7 +118,6 @@ in
       recursive = true;
     };
 
-    
     ".config/rofi" = {
       source = ./dotfiles/rofi;
       recursive = true;
