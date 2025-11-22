@@ -62,6 +62,8 @@ in
     pkgs.scrot
     pkgs.man-pages
     pkgs.clang
+    pkgs.gnumake
+    pkgs.gdb
     pkgs.arandr
     pkgs.flameshot
   ];
