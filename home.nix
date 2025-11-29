@@ -66,6 +66,7 @@ in
     pkgs.gdb
     pkgs.arandr
     pkgs.flameshot
+    pkgs.bc
   ];
 
   home.file = {
@@ -104,6 +105,11 @@ in
 
     ".config/i3" = {
       source = ./dotfiles/i3;
+      recursive = true;
+    };
+    
+    ".config/i3blocks" = {
+      source = ./dotfiles/i3blocks;
       recursive = true;
     };
 
