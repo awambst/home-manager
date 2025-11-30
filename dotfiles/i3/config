@@ -16,7 +16,7 @@ set $bar_setting_mode                dock
 set $bar_setting_font                pango:Source Sans Pro, Semibold 11
 set $bar_setting_separator           " - "
 #set $bar_setting_statusCommand      i3status
-set $bar_setting_statusCommand       i3blocks -c /home/$USER/.config/i3blocks/i3blocks.conf
+set $bar_setting_status_command      i3blocks -c /home/$USER/.config/i3blocks/i3blocks.conf
 set $bar_setting_trayoutput          full
 
 set $bar_color_background            #3B4252
@@ -252,9 +252,9 @@ bar {
 	position         $bar_setting_position
 	mode             $bar_setting_mode
 	font             $bar_setting_font
-	separator_symbol $bar_setting_separator
-	status_command   $bar_setting_statusCommand
-	#tray_output      $bar_setting_trayoutput
+    status_command   $bar_setting_status_command
+	separator_symbol " - "
+    #tray_output      $bar_setting_trayoutput
 
 	colors {
 		background   $bar_color_background
