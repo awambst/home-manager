@@ -61,12 +61,15 @@ in
     pkgs.variety
     pkgs.scrot
     pkgs.man-pages
-    pkgs.clang
+    pkgs.clang-tools
+    pkgs.gcovr
     pkgs.gnumake
     pkgs.gdb
     pkgs.arandr
     pkgs.flameshot
     pkgs.bc
+
+    pkgs.kdePackages.dolphin
   ];
 
   home.file = {
@@ -333,6 +336,11 @@ in
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
+
+  imports = [
+    ./modules/firefox.nix
+    ./modules/xdg-config.nix
+  ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager = {
