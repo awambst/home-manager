@@ -15,8 +15,8 @@ set $bar_setting_position            bottom
 set $bar_setting_mode                dock
 set $bar_setting_font                pango:Source Sans Pro, Semibold 11
 set $bar_setting_separator           " - "
-#set $bar_setting_statusCommand      i3status
-set $bar_setting_status_command      i3blocks -c /home/$USER/.config/i3blocks/i3blocks.conf
+set $bar_setting_statusCommand      poly
+#set $bar_setting_status_command      i3blocks -c /home/$USER/.config/i3blocks/i3blocks.conf
 set $bar_setting_trayoutput          full
 
 set $bar_color_background            #3B4252
@@ -46,6 +46,7 @@ font pango:monospace 8
 #font pango:DejaVu Sans Mono 8
 
 exec --no-startup-id picom -b
+exec --no-startup-id polybar
 #exec --no-startup-id variety   # It already starts alone on startup, this only
                                 # make its gui open
 #exec --no-startup-id flameshot
@@ -248,22 +249,22 @@ gaps outer 1
 #}
 
 ### i3bar ###
-bar {
-	position         $bar_setting_position
-	mode             $bar_setting_mode
-	font             $bar_setting_font
-    status_command   $bar_setting_status_command
-	separator_symbol " - "
+#bar {
+#	position         $bar_setting_position
+#	mode             $bar_setting_mode
+#	font             $bar_setting_font
+#    status_command   $bar_setting_status_command
+#	separator_symbol " - "
     #tray_output      $bar_setting_trayoutput
 
-	colors {
-		background   $bar_color_background
-		statusline   $bar_color_statusline
-		separator    $bar_color_separator
+#	colors {
+#		background   $bar_color_background
+#		statusline   $bar_color_statusline
+#		separator    $bar_color_separator
 
-		focused_workspace  $bar_color_workspace_focused_bg  $bar_color_workspace_focused_bg  $bar_color_workspace_focused_fg
-		active_workspace   $bar_color_workspace_active_bg   $bar_color_workspace_active_bg   $bar_color_workspace_active_fg
-		inactive_workspace $bar_color_workspace_inactive_bg $bar_color_workspace_inactive_bg $bar_color_workspace_inactive_fg
-		urgent_workspace   $bar_color_workspace_urgent_bg   $bar_color_workspace_urgent_bg   $bar_color_workspace_urgent_fg
-	}
-}
+#		focused_workspace  $bar_color_workspace_focused_bg  $bar_color_workspace_focused_bg  $bar_color_workspace_focused_fg
+#		active_workspace   $bar_color_workspace_active_bg   $bar_color_workspace_active_bg   $bar_color_workspace_active_fg
+#		inactive_workspace $bar_color_workspace_inactive_bg $bar_color_workspace_inactive_bg $bar_color_workspace_inactive_fg
+#		urgent_workspace   $bar_color_workspace_urgent_bg   $bar_color_workspace_urgent_bg   $bar_color_workspace_urgent_fg
+#	}
+#}
