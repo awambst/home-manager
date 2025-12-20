@@ -19,13 +19,12 @@
 
         # Configuration du tray
 
-
         font-0 = "DejaVu Sans:size=10;2";
         font-1 = "Font Awesome 6 Free:style=Solid:size=12;3";
         font-2 = "Font Awesome 6 Free:style=Solid:size=16;3";
         modules-left = "powermenu i3 cpu memory filesystem";
         modules-center = "date";
-        modules-right = "microphone volume network wifi battery";
+        modules-right = "microphone volume network wifi battery tray";
       };
 
       "module/tray" = {
@@ -228,14 +227,25 @@
         content-font = 3;
         content-foreground = "#7EB1EF";
         click-left = "${pkgs.writeShellScript "powermenu" ''
-          choice=$(echo -e "🔴 Éteindre\n🔄 Redémarrer\n🚪 Déconnexion" |
-                  ${pkgs.rofi}/bin/rofi -dmenu -p "Power Menu" -theme-str
-                  'window {width: 500px;}')
-          case "$choice" in
-            "🔴 Éteindre") systemctl poweroff ;;
-            "🔄 Redémarrer") systemctl reboot ;;
-            "🚪 Déconnexion") i3-msg exit ;;
-          esac
+          choice=$(echo -e "Annuler\n🔴 Éteindre\n🔄 Redémarrer\n🚪 Déconnexion" |
+            ${pkgs.rofi}/bin/rofi \
+            -dmenu \
+            -p "" \
+            -theme-str 'window {width: 500px; height: 500px; border-radius: 12px;}' \
+            -theme-str 'listview {lines: 4; columns: 1; spacing: 10px;}' \
+            -theme-str 'element {padding: 20px; border-radius: 10px;}' \
+            -theme-str 'element-text {horizontal-align: 0.5; vertical-align:
+          0.5; font: "JetBrains Mono Nerd Font 22";}' \
+            -theme-str 'element-icon {size: 0;}' \
+            -theme-str 'element selected {background-color: #BEBEBE;}' \
+            -theme-str 'inputbar {enabled: false;}' \
+            -theme-str 'mainbox {padding: 15px;}')
+              case "$choice" in
+                "Annuler") ;;
+                "🔴 Éteindre") systemctl poweroff ;;
+                "🔄 Redémarrer") systemctl reboot ;;
+                "🚪 Déconnexion") i3-msg exit ;;
+              esac
         ''}";
       };
     };
