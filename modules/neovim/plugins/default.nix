@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [ ./formatting ];
 
@@ -124,23 +124,34 @@
       # Syntax highlighting
       treesitter = {
         enable = true;
+        nixGrammars = true;
+        grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+          angular
+          bash
+          c
+          cpp
+          css
+          haskell
+          html
+          htmldjango
+          ini
+          java
+          json
+          lua
+          markdown
+          nix
+          python
+          rust
+          sql
+          toml
+          yaml
+          # Add other languages you need
+        ];
+
         settings = {
-          ensure_installed = [
-            "nix"
-            "rust"
-            "python"
-            "java"
-            "c"
-            "cpp"
-            "bash"
-            "json"
-            "yaml"
-            "lua"
-            "ini"
-            "toml"
-          ];
           highlight.enable = true;
           indent.enable = true;
+          incremental_selection.enable = true;
           fold = {
             enable = true;
             # Seulement les éléments spécifiés
