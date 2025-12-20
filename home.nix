@@ -90,6 +90,8 @@ in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
+    home.file.".clang-format".source = dotfiles/.clang-format-epita;
+
     ".config/waybar" = {
       source = ./dotfiles/waybar;
       recursive = true;
@@ -353,6 +355,7 @@ in
   imports = [
     ./modules/firefox.nix
     ./modules/xdg-config.nix
+    ./modules/neovim
   ];
 
   # Let Home Manager install and manage itself.
