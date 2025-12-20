@@ -70,6 +70,11 @@ in
     pkgs.bc
 
     pkgs.kdePackages.dolphin
+    pkgs.kdePackages.gwenview
+    pkgs.kdePackages.ark
+
+    pkgs.mpv
+    pkgs.inkscape
   ];
 
   home.file = {

@@ -14,8 +14,8 @@ let
   officeWriter = "writer.desktop";
   officeCalc = "calc.desktop";
   officePresentation = "impress.desktop";
-  videoPlayer = "vlc.desktop";
-  audioPlayer = "vlc.desktop";
+  videoPlayer = "mpv.desktop";
+  audioPlayer = "mpv.desktop";
   archiveManager = "ark.desktop";
   ebookReader = "calibre.desktop";
   torrentClient = "transmission-gtk.desktop";
