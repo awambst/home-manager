@@ -75,6 +75,7 @@ in
 
     pkgs.mpv
     pkgs.inkscape
+    pkgs.gparted
   ];
 
   home.file = {
