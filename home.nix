@@ -355,6 +355,7 @@ in
   imports = [
     ./modules/firefox.nix
     ./modules/xdg-config.nix
+    ./modules/polybar.nix
   ];
 
   # Let Home Manager install and manage itself.
