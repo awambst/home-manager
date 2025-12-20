@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }:
 let
@@ -25,6 +26,10 @@ in
       ];
     };
   };
+
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+             "ventoy"
+  ];
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -77,7 +82,7 @@ in
     pkgs.inkscape
 
     pkgs.gparted
-    pkgs.ventoy-full
+    pkgs.popsicle
   ];
 
   home.file = {
