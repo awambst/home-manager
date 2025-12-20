@@ -75,7 +75,9 @@ in
 
     pkgs.mpv
     pkgs.inkscape
+
     pkgs.gparted
+    pkgs.ventoy-full
   ];
 
   home.file = {
