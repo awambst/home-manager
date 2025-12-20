@@ -22,6 +22,7 @@
         font-0 = "DejaVu Sans:size=10;2";
         font-1 = "Font Awesome 6 Free:style=Solid:size=12;3";
         font-2 = "Font Awesome 6 Free:style=Solid:size=16;3";
+        font-3 = "Symbols Nerd Font Mono:style=Solid:size=16;3";
         modules-left = "powermenu i3 cpu memory filesystem";
         modules-center = "date";
         modules-right = "microphone volume network wifi battery tray";
@@ -102,7 +103,7 @@
         type = "internal/battery";
         battery = "BAT0";
         adapter = "AC";
-        full-at = 98;
+        full-at = 99;
 
         format-charging = "<label-charging>";
         format-charging-prefix = " ";
@@ -117,7 +118,7 @@
 
         label-charging = "%percentage%%  ";
         label-discharging = "%percentage%%  ";
-        label-full = "%percentage%%  ";
+        label-full = "100%  ";
       };
 
       # Volume
@@ -223,8 +224,8 @@
       # Menu power avec rofi
       "module/powermenu" = {
         type = "custom/text";
-        content = "";
-        content-font = 3;
+        content = "  ";
+        content-font = 4;
         content-foreground = "#7EB1EF";
         click-left = "${pkgs.writeShellScript "powermenu" ''
           choice=$(echo -e "Annuler\n🔴 Éteindre\n🔄 Redémarrer\n🚪 Déconnexion" |
