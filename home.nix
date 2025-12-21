@@ -356,6 +356,7 @@ in
     ./modules/firefox.nix
     ./modules/xdg-config.nix
     ./modules/polybar.nix
+    ./modules/remote_play.nix
   ];
 
   # Let Home Manager install and manage itself.
