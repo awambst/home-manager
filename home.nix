@@ -83,6 +83,8 @@ in
 
     pkgs.gparted
     pkgs.popsicle
+
+    pkgs.pulseaudio
   ];
 
   home.file = {

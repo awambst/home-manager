@@ -20,7 +20,7 @@ get_status() {
     if [ "$muted" = "yes" ]; then
         echo "  "
     else
-        echo " ''${volume}%  "
+        echo " ${volume}%  "
     fi
 }
 
