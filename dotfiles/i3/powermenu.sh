@@ -3,19 +3,19 @@
 file_man=dolphin
 
 
-powr_str="  Power           "
-file_str="  File Manager    "
-disp_str="󱣵  Display Settings"
-audi_str="  Audio Settings  "
+powr_str="   Power"
+file_str="📂  File Manager"
+disp_str="🖥️  Display Settings"
+audi_str="🔊  Audio Settings"
 
 
 
 # Main menu function
 main_menu() {
-    echo "$powr_str"
     echo "$file_str"
     echo "$disp_str"
     echo "$audi_str"
+    echo "$powr_str"
 }
 
 # Power submenu
@@ -55,20 +55,22 @@ audio_menu() {
 my_rofi() {
     local title="$1"
     rofi \
+        -markup-rows \
         -dmenu -i \
         -p "$title" \
+        -theme-str '* {background:#E0E0E0;}' \
         -theme-str 'configuration {me-select-entry: ""; click-to-exit: true;
-            me-accept-entry: "MousePrimary"; hover-select: true;}' \
+            me-accept-entry: "!MousePrimary"; hover-select: true;}' \
         -theme-str 'window {location: south west; anchor: south west;
-            width: 300px; height: 400px; border-radius: 12px;}' \
+            width: 300px; height: 400px; border-radius: 30px;}' \
         -theme-str 'listview {lines: 6; columns: 1; spacing: 2px;}' \
-        -theme-str 'element {padding: 5px; border-radius: 12px;}' \
-        -theme-str 'element-text {horizontal-align: 0.5; 
-            vertical-align: 0.5; font: "JetBrains Mono Nerd Font 14";}' \
+        -theme-str 'element {padding: 2px; border-radius: 12px; spacing: 0px;}' \
+        -theme-str 'element-text {horizontal-align: 0; 
+            vertical-align: 1; font: "JetBrains Mono Nerd Font 14";}' \
         -theme-str 'element-icon {size: 0;}' \
         -theme-str 'element selected {background-color: #BEBEBE;}' \
         -theme-str 'inputbar {enabled: false;}' \
-        -theme-str 'mainbox {padding: 5px;}'
+        -theme-str 'mainbox {padding: 2px;}'
 }
 
 # Main loop
@@ -84,13 +86,16 @@ show_menu() {
                         menu="power"
                         ;;
                     "$file_str")
-                        menu="file"
+                        "$file_man" &
+                        exit 0
                         ;;
                     "$disp_str")
-                        menu="display"
+                        arandr &
+                        exit 0
                         ;;
                     "$audi_str")
-                        menu="audio"
+                        pavucontrol &
+                        exit 0
                         ;;
                     "")
                         exit 0
@@ -107,12 +112,12 @@ show_menu() {
                     "🔄 Reboot")
                         systemctl reboot
                         ;;
-                    "💤 Suspend")
-                        systemctl suspend
+                    "💤 Logout")
+                        i3-msg exit
                         ;;
                     "🔒 Lock")
-                        i3lock -c 000000 # or your lock command
-                        menu="main"
+                        ~/.config/lock/i3-lock.sh &
+                        exit 0
                         ;;
                     "⬅️  Back")
                         menu="main"
