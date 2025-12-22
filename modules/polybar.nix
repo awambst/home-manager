@@ -227,27 +227,7 @@
         content = "  ";
         content-font = 4;
         content-foreground = "#7EB1EF";
-        click-left = "${pkgs.writeShellScript "powermenu" ''
-          choice=$(echo -e "Annuler\n🔴 Éteindre\n🔄 Redémarrer\n🚪 Déconnexion" |
-            ${pkgs.rofi}/bin/rofi \
-            -dmenu \
-            -p "" \
-            -theme-str 'window {width: 500px; height: 500px; border-radius: 12px;}' \
-            -theme-str 'listview {lines: 4; columns: 1; spacing: 10px;}' \
-            -theme-str 'element {padding: 20px; border-radius: 10px;}' \
-            -theme-str 'element-text {horizontal-align: 0.5; vertical-align:
-          0.5; font: "JetBrains Mono Nerd Font 22";}' \
-            -theme-str 'element-icon {size: 0;}' \
-            -theme-str 'element selected {background-color: #BEBEBE;}' \
-            -theme-str 'inputbar {enabled: false;}' \
-            -theme-str 'mainbox {padding: 15px;}')
-              case "$choice" in
-                "Annuler") ;;
-                "🔴 Éteindre") systemctl poweroff ;;
-                "🔄 Redémarrer") systemctl reboot ;;
-                "🚪 Déconnexion") i3-msg exit ;;
-              esac
-        ''}";
+        click-left = ~/.config/i3/powermenu.sh;
       };
     };
   };
