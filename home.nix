@@ -91,6 +91,10 @@ in
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
     ".clang-format".source = dotfiles/.clang-format-epita;
+    ".config/polybar" = {
+      source = dotfiles/polybar;
+      recursive = true;
+    };
 
     ".config/waybar" = {
       source = ./dotfiles/waybar;
