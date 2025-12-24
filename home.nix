@@ -108,6 +108,8 @@ in
       recursive = true;
     };
 
+    "Images/screens/.oui".text ="";
+
     ".bashrc".text = ''
       if [ -n "$IN_NIX_SHELL" ]; then
         export PS1="\[\033[01;32m\]nix-shell\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]$ "
