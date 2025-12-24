@@ -27,10 +27,6 @@ in
     };
   };
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-             "ventoy"
-  ];
-
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -40,9 +36,9 @@ in
   # release notes.
   home.stateVersion = "25.05"; # Please read the comment before changing.
 
-  home.packages = [
-    pkgs.jq
-    pkgs.jellyfin-media-player
+  home.packages = with pkgs; [
+    jq
+    jellyfin-media-player
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -60,31 +56,34 @@ in
     #   echo "Hello, ${config.home.username}!"
     # '')
 
-    pkgs.rofi
-    pkgs.picom
-    pkgs.feh
-    pkgs.variety
-    pkgs.scrot
-    pkgs.man-pages
-    pkgs.clang-tools
-    pkgs.gcovr
-    pkgs.gnumake
-    pkgs.gdb
-    pkgs.arandr
-    pkgs.flameshot
-    pkgs.bc
+    rofi
+    wofi
 
-    pkgs.kdePackages.dolphin
-    pkgs.kdePackages.gwenview
-    pkgs.kdePackages.ark
+    picom
+    feh
+    variety
+    
+    scrot
+    flameshot
+    hyprshot
 
-    pkgs.mpv
-    pkgs.inkscape
+    arandr
+    bc
 
-    pkgs.gparted
-    pkgs.popsicle
+    kdePackages.dolphin
+    kdePackages.gwenview
+    kdePackages.ark
 
-    pkgs.pulseaudio
+    mpv
+    inkscape-with-extensions
+
+    gparted
+    popsicle
+    
+    pulseaudio
+
+    arrpc # To be able to use discord acivity detection
+    vesktop
   ];
 
   home.file = {
