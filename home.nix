@@ -70,9 +70,6 @@ in
     arandr
     bc
 
-    kdePackages.dolphin
-    kdePackages.gwenview
-    kdePackages.ark
 
     mpv
     inkscape-with-extensions
@@ -84,7 +81,24 @@ in
 
     arrpc # To be able to use discord acivity detection
     vesktop
+    
+    kdePackages.gwenview
+    kdePackages.ark
+
+    kdePackages.dolphin
+    kdePackages.oxygen
+    kdePackages.oxygen-icons
+    kdePackages.dolphin-plugins
+    kdePackages.kdegraphics-thumbnailers
+    kdePackages.ffmpegthumbs
+    kdePackages.kio-extras
   ];
+
+  qt = {
+    enable = true;
+    platformTheme = "kde";
+    style = { name = "oxygen"; };
+  };
 
   home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
@@ -132,6 +146,8 @@ in
       source = ./dotfiles/i3;
       recursive = true;
     };
+    
+    ".config/dolphinrc".source = ./dotfiles/dolphinrc;
     
     ".config/i3blocks" = {
       source = ./dotfiles/i3blocks;
