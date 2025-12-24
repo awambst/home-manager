@@ -16,6 +16,8 @@ configuration {
     display-filebrowser:        "FILES";
     display-window:             "WINDOWS";
 	drun-display-format:        "{name}";
+    /*drun-categories: "Application,
+    AudioVideo,Video,Development,Education,Game,Graphics,Network,Office";*/
 	window-format:              "{w} · {c}";
 }
 
