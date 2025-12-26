@@ -1,0 +1,6 @@
+{...}:
+{
+  import = [
+    ./polybar.nix
+  ];
+}

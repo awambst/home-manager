@@ -372,7 +372,7 @@ in
   imports = [
     ./modules/firefox.nix
     ./modules/xdg-config.nix
-    ./modules/polybar.nix
+    ./modules/i3.nix
     ./modules/remote_play.nix
   ];
 
