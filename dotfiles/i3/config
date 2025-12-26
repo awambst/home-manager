@@ -45,6 +45,7 @@ font pango:monospace 8
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
+exec_always --no-startup-id dunst -config
 exec --no-startup-id picom -b
 exec --no-startup-id polybar
 exec --no-startup-id rofi -show drun -show-icons
