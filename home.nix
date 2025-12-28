@@ -37,26 +37,7 @@ in
   home.stateVersion = "25.05"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
-    jq
-    jellyfin-media-player
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
 
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
-
-    rofi
     wofi
 
     picom
@@ -68,31 +49,29 @@ in
     hyprshot
 
     arandr
-    bc
 
-
-    mpv
-    inkscape-with-extensions
-
-    gparted
-    popsicle
-    
-    pulseaudio
-
-    arrpc # To be able to use discord acivity detection
-    vesktop
-    
     kdePackages.gwenview
     kdePackages.ark
 
-    kdePackages.dolphin
     kdePackages.oxygen
     kdePackages.oxygen-icons
     kdePackages.dolphin-plugins
     kdePackages.kdegraphics-thumbnailers
     kdePackages.ffmpegthumbs
     kdePackages.kio-extras
+
+    adwaita-icon-theme
+    hicolor-icon-theme
+    papirus-icon-theme
   ];
+
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Adwaita";
+      package = pkgs.adwaita-icon-theme;
+    };
+  };
 
   home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
@@ -100,20 +79,12 @@ in
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
     ".clang-format".source = dotfiles/.clang-format-epita;
-    ".config/polybar" = {
-      source = dotfiles/polybar;
-      recursive = true;
-    };
 
     ".config/waybar" = {
       source = ./dotfiles/waybar;
       recursive = true;
     };
 
-    ".config/picom" = {
-      source = ./dotfiles/picom;
-      recursive = true;
-    };
 
     "Images/screens/.oui".text ="";
 
@@ -136,17 +107,8 @@ in
       showSelectionGeometryHideTime=2997
     '';
 
-    ".config/i3" = {
-      source = ./dotfiles/i3;
-      recursive = true;
-    };
     
     ".config/dolphinrc".source = ./dotfiles/dolphinrc;
-    
-    ".config/i3blocks" = {
-      source = ./dotfiles/i3blocks;
-      recursive = true;
-    };
 
     ".cache/betterlockscreen" = {
       source = ./dotfiles/betterlockscreen;
@@ -160,11 +122,6 @@ in
 
     ".config/lock" = {
       source = ./dotfiles/lock;
-      recursive = true;
-    };
-
-    ".config/rofi" = {
-      source = ./dotfiles/rofi;
       recursive = true;
     };
 
@@ -303,49 +260,6 @@ in
       recursive = true;
     };
 
-    ".gitconfig".text = ''
-      [user]
-        email = "${info.mail}"
-        name = "${info.prenom} ${info.nom}"
-      [core]
-        editor = nvim
-        whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-      [init]
-        defaultBranch = main
-      [checkout]
-        defaultRemote = origin
-      [color]
-        ui = auto
-      [color "branch"]
-        current = yellow bold
-        local = green bold
-        remote = cyan bold
-      [color "diff"]
-        meta = yellow bold
-        frag = magenta bold
-        old = red bold
-        new = green bold
-        whitespace = red reverse
-      [color "status"]
-        added = green bold
-        changed = yellow bold
-        untracked = red bold
-      [push]
-        autoSetupRemote = true
-      [alias]
-        qmp = "!f() { git fetch && git add -A && git commit -m \"$*\" && git push; }; f"
-        s = "!f() { git status -sb; }; f"
-        st = "!f() { git status; }; f"
-        f = "!f() { git fetch; }; f"
-      [gpg]
-          format=ssh
-      [user]
-          signingkey=~/.ssh/keys/id_rsa_sign.pub
-      [commit]
-          gpgsign = ${info.git_signing}
-      [tag]
-          gpgsign = ${info.git_signing}
-    '';
 
   };
 
@@ -370,10 +284,10 @@ in
   };
 
   imports = [
-    ./modules/firefox.nix
     ./modules/xdg-config.nix
     ./modules/i3.nix
-    ./modules/remote_play.nix
+    ./modules/dev.nix
+    ./modules/common.nix info
   ];
 
   # Let Home Manager install and manage itself.

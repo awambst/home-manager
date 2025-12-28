@@ -7,7 +7,7 @@
     gnumake
     gdb
     gcc
-    rustc
-    rustup
+    #    rustc
+    #    rustup
   ];
 }

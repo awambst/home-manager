@@ -1,12 +1,14 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    dunst
+    rofi
+    rofi-network-manager
+    rofi-rbw
   ];
 
   home.file = {
-    ".config/dunst/dunstrc" = {
-      source = ../../dotfiles/dunst/dunstrc;
+    ".config/rofi" = {
+      source = ../../dotfiles/rofi;
       recursive = true;
     };
   };
