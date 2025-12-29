@@ -1,4 +1,7 @@
-{ info, ... }:
+{ ... }:
+let
+  info = import ../../info.nix;
+in
 {
   home.file = {
     ".gitconfig".text = ''

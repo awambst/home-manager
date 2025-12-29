@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   lib,
   ...
@@ -287,7 +286,7 @@ in
     ./modules/xdg-config.nix
     ./modules/i3.nix
     ./modules/dev.nix
-    ./modules/common.nix info
+    ./modules/common.nix
   ];
 
   # Let Home Manager install and manage itself.
