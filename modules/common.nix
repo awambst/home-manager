@@ -23,6 +23,11 @@
       sudo swanctl -q
       sudo swanctl -i --child banquise
     '')
+    
+    (pkgs.writeShellScriptBin "dev-rust" ''
+      nix shell github:oxalica/rust-overlay
+    '')
+
 
     jq
     jellyfin-media-player
