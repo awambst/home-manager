@@ -16,7 +16,7 @@
     -- ouvre un term a droite
     vim.keymap.set('n', '<leader>t', function()
       vim.cmd('vsplit')
-               vim.cmd('wincmd l')
+      vim.cmd('wincmd l')
       vim.cmd('terminal')
       vim.cmd('startinsert')  -- Entre automatiquement en mode insert dans le terminal
     end, { desc = 'Open terminal in right split' })
@@ -25,7 +25,7 @@
     vim.keymap.set('t', '<Esc>', '<C-\\><C-n>:q<CR>', opts)
     vim.keymap.set('t', '<leader>t', '<C-\\><C-n>:q<CR>', opts)
 
-            -- Configuration des diagnostics avec hover automatique
+    -- Configuration des diagnostics avec hover automatique
     vim.diagnostic.config({
       virtual_text = {
         prefix = '●',
@@ -57,10 +57,16 @@
       end
     })
 
+    vim.api.nvim_create_autocmd("VimEnter", {
+        callback = function()
+          require("neo-tree.command").execute({ action = "show",
+              reveal = true })
+        end,
+      })
+
     -- Raccourcis sans leader
     -- vim.keymap.set('n', '<F2>', ':echo "Test fonctionne!"<CR>', { desc = 'Test F2' })
     vim.keymap.set('n', '<leader>e', ':Neotree toggle<CR>', { desc = 'Toggle Neotree' })
-    vim.keymap.set('n', '<leader>z', ':Telescope find_files<CR>', { desc = 'Find files' })
     vim.keymap.set('n', '<F5>', ':setlocal foldmethod=syntax<CR>', { desc = 'Enable syntax folding' })
     vim.keymap.set('n', '<F6>', ':setlocal foldenable!<CR>', { desc = 'Toggle folding' })
 
@@ -80,7 +86,7 @@
     -- Bonus : En mode Normal, indenter ligne courante
     vim.keymap.set('n', '<Tab>', '>>', { desc = 'Indent current line' })
     vim.keymap.set('n', '<S-Tab>', '<<', { desc = 'Outdent current line' })
-    
+
     vim.keymap.set("n", "<leader>h", "<C-\\><C-n><C-w>h", opts)
     vim.keymap.set("n", "<leader>j", "<C-\\><C-n><C-w>j", opts)
     vim.keymap.set("n", "<leader>k", "<C-\\><C-n><C-w>k", opts)
@@ -135,7 +141,7 @@
       end,
     })
 
-    
+
   '';
 
   opts = {

@@ -13,7 +13,7 @@ option_as_alt = "Both"
 
 [font]
 #family = "Cousine"#"MesloLGS Nerd Font Mono"
-size = 10
+size = 8
 
 [font.bold]
 family = "JetBrainsMono NFM"

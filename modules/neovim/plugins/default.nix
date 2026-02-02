@@ -52,10 +52,34 @@
       };
 
       # File explorer
-      neo-tree.enable = true;
+      neo-tree = {
+        enable = true;
+        settings.window = {
+          width = 25; # Adjust this number (default is usually 40)
+        };
+      };
 
       # Fuzzy finder
-      telescope.enable = true;
+      telescope = {
+        enable = true;
+        extensions = {
+          live-grep-args.enable = true;
+          ui-select = {
+            enable = true;
+            settings.specific_opts = {
+              codeactions = true;
+            };
+          };
+        };
+        keymaps = {
+          "<leader>ff" = {
+            action = "find_files";
+          };
+          "<leader>fg" = {
+            action = "live_grep";
+          };
+        };
+      };
 
       # LSP - LE TRUC IMPORTANT !
       lsp = {
@@ -114,12 +138,12 @@
       cmp-nvim-lsp.enable = true;
       cmp-buffer.enable = true;
       cmp-path.enable = true;
-      luasnip.enable = true;
       cmp_luasnip.enable = true;
 
       # Snippets prédéfinis
       friendly-snippets.enable = true;
       comment.enable = true;
+      luasnip.enable = true;
 
       # Syntax highlighting
       treesitter = {
@@ -159,7 +183,8 @@
           };
         };
       };
-      # Interface
+
+      # Interface - the bar at the bottom
       lualine.enable = true;
 
     };
