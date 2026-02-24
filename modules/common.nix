@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
@@ -23,11 +23,10 @@
       sudo swanctl -q
       sudo swanctl -i --child banquise
     '')
-    
+
     (pkgs.writeShellScriptBin "dev-rust" ''
       nix shell github:oxalica/rust-overlay
     '')
-
 
     jq
     jellyfin-media-player
@@ -37,8 +36,6 @@
     kdePackages.dolphin-plugins
 
     bc
-    arrpc # To be able to use discord acivity detection
-    vesktop
     pulseaudio
     gparted
     popsicle

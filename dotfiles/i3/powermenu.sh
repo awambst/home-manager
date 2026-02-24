@@ -1,8 +1,6 @@
-#!/bin/bash
+##!/bin/bash
 
 file_man=dolphin
-
-
 powr_str="   Power"
 file_str="📂  File Manager"
 disp_str="🖥️  Display Settings"

@@ -10,7 +10,7 @@
 
       # Plugin spécialisé pour le folding intelligent
       nvim-ufo = {
-        enable = true;
+        enable = false;
         settings = {
           provider_selector = ''
             function(bufnr, filetype, buftype)
@@ -94,7 +94,15 @@
           pyright.enable = true;
 
           # LSP pour Java
-          jdtls.enable = true;
+          jdtls = {
+            enable = true;
+            extraOptions = {
+              cmd = [
+                "jdtls"
+                "--jvm-arg=-javaagent:${pkgs.lombok}/share/java/lombok.jar"
+              ];
+            };
+          };
 
           # LSP pour C/C++
           clangd.enable = true;

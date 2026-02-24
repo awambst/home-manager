@@ -2,6 +2,8 @@
   globals.mapleader = " ";
 
   extraConfigLua = ''
+     vim.lsp.enable('jdtls')
+
      -- Folding uniquement pour C/C++
     vim.api.nvim_create_autocmd("FileType", {
       pattern = { "c", "cpp", "h", "hpp", "java" },
@@ -22,7 +24,7 @@
     end, { desc = 'Open terminal in right split' })
 
     -- ferme le terminal avec Esc ou space t
-    vim.keymap.set('t', '<Esc>', '<C-\\><C-n>:q<CR>', opts)
+    vim.keymap.set('t', '<leader><Esc>', '<C-\\><C-n>:q<CR>', opts)
     vim.keymap.set('t', '<leader>t', '<C-\\><C-n>:q<CR>', opts)
 
     -- Configuration des diagnostics avec hover automatique
@@ -63,6 +65,13 @@
               reveal = true })
         end,
       })
+
+     vim.api.nvim_create_autocmd("BufWritePost", {
+      pattern = "*",
+      callback = function()
+        require('conform').format({ async = true, lsp_fallback = true })
+      end,
+    })
 
     -- Raccourcis sans leader
     -- vim.keymap.set('n', '<F2>', ':echo "Test fonctionne!"<CR>', { desc = 'Test F2' })

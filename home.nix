@@ -62,6 +62,9 @@ in
     adwaita-icon-theme
     hicolor-icon-theme
     papirus-icon-theme
+
+    lombok
+    jdt-language-server
   ];
 
   gtk = {
@@ -77,7 +80,7 @@ in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    ".clang-format".source = dotfiles/.clang-format-epita;
+    ".clang-format".source = dotfiles/.clang-format;
 
     ".config/waybar" = {
       source = ./dotfiles/waybar;
