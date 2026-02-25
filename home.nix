@@ -41,8 +41,8 @@ in
 
     picom
     feh
-    variety
-    
+    #variety
+
     scrot
     flameshot
     hyprshot
@@ -87,8 +87,7 @@ in
       recursive = true;
     };
 
-
-    "Images/screens/.oui".text ="";
+    "Images/screens/.oui".text = "";
 
     ".bashrc".text = ''
       if [ -n "$IN_NIX_SHELL" ]; then
@@ -109,7 +108,6 @@ in
       showSelectionGeometryHideTime=2997
     '';
 
-    
     ".config/dolphinrc".source = ./dotfiles/dolphinrc;
 
     ".cache/betterlockscreen" = {
@@ -261,7 +259,6 @@ in
       source = ./dotfiles/hypr;
       recursive = true;
     };
-
 
   };
 
