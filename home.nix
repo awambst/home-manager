@@ -287,6 +287,7 @@ in
     ./modules/i3.nix
     ./modules/dev.nix
     ./modules/common.nix
+    ./modules/discord.nix
   ];
 
   # Let Home Manager install and manage itself.
