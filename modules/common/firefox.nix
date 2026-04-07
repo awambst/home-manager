@@ -73,7 +73,8 @@ in
 
           # ytb enhancer
           "enhancerforyoutube@maximerf.addons.mozilla.org" = {
-            install_url = "https://web.archive.org/web/20240222181325id_/https://addons.mozilla.org/firefox/downloads/file/4231850/enhancer_for_youtube-2.0.122.1.xpi";
+            #  install_url = "https://web.archive.org/web/20240222181325id_/https://addons.mozilla.org/firefox/downloads/file/4231850/enhancer_for_youtube-2.0.122.1.xpi";
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/enhancer-for-youtube/latest.xpi/";
             installation_mode = "force_installed";
           };
 
@@ -147,6 +148,9 @@ in
           "browser.newtabpage.activity-stream.showSponsored" = lock-false;
           "browser.newtabpage.activity-stream.system.showSponsored" = lock-false;
           "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
+
+          "sidebar.verticalTabs" = lock-true;
+          "browser.contentanalysis.enabled" = lock-false;
         };
       };
     };
