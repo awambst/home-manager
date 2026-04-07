@@ -45,11 +45,9 @@ in
 
     scrot
     flameshot
-    hyprshot
 
     arandr
 
-    kdePackages.gwenview
     kdePackages.ark
 
     kdePackages.oxygen
