@@ -9,12 +9,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
-      url = "git+https://github.com/nix-community/nixvim.git"; # ?rev=ab1b5962e1ca90b42de47e1172e0d24ca80e6256";
+      url = "github:nix-community/nixvim/nixos-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs =
-    { nixpkgs, home-manager, nixvim, ... }:
+    {
+      nixpkgs,
+      home-manager,
+      nixvim,
+      ...
+    }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
