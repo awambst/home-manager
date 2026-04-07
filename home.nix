@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   ...
 }:
 let
@@ -37,11 +36,8 @@ in
 
   home.packages = with pkgs; [
 
-    wofi
-
     picom
     feh
-    #variety
 
     scrot
     flameshot
@@ -123,11 +119,6 @@ in
       recursive = true;
     };
 
-    ".config/wofi" = {
-      source = ./dotfiles/wofi;
-      recursive = true;
-    };
-
     ".config/alacritty" = {
       source = ./dotfiles/alacritty;
       recursive = true;
@@ -142,122 +133,6 @@ in
       source = ./dotfiles/wallpapers;
       recursive = true;
     };
-
-    ".config/hypr/hypridle.conf".text = ''
-      general {
-          lock_cmd = pidof hyprlock || hyprlock	# dbus/sysd lock command (loginctl lock-session)
-          unlock_cmd = notify-send "unlock!"      # same as above, but unlock
-          before_sleep_cmd = loginctl lock-session     # command ran before sleep
-          #after_sleep_cmd = hyprctl dispatch dpms on   # command ran after sleep
-          #ignore_dbus_inhibit = false             # whether to ignore dbus-sent idle-inhibit requests (used by e.g. firefox or steam)
-          #ignore_systemd_inhibit = false          # whether to ignore systemd-inhibit --what=idle inhibitors
-      }
-
-      listener {
-          timeout = 120
-          on-timeout = loginctl lock-session		
-          on-resume = hyprctl dispatch exec 'xrandr --output ${info.primary_screen} --primary' 
-      }
-
-      listener {
-          timeout = 180                                # 2.5min
-          on-timeout = hyprctl dispatch exec 'light > .cache/light' && hyprctl dispatch dpms off        # screen off when timeout has passed
-          on-resume = hyprctl dispatch dpms on && hyprctl dispatch exec 'light -S $(cat .cache/light)' && hyprctl dispatch exec 'rm .cache/light'          # screen on when activity is detected after timeout has fired.
-      }
-    '';
-
-    ".config/hypr/screens.conf".text = ''
-      ${info.screens}
-      exec-once = hyprctl dispatch exec 'xrandr --output ${info.primary_screen} --primary'
-      workspace = 5, monitor:${info.primary_screen}
-    '';
-    ".config/hypr/input.conf".text = ''
-      # https://wiki.hyprland.org/Configuring/Variables/#input
-      input {
-          kb_layout = ${if info.keyboard == "fr" then "fr" else "us"}
-          kb_variant =
-          kb_model =
-          kb_options =
-          kb_rules =
-
-          follow_mouse = 1
-
-          sensitivity = -0.2 #1.0 - 1.0, 0 means no modification.
-          accel_profile = flat    
-          numlock_by_default = true
-
-          touchpad {
-              natural_scroll = true
-          }
-      }'';
-    ".config/hypr/workspaces.conf".text = ''
-          # Switch workspaces with mainMod + [0-9]
-      bind = $mainMod, ${
-        if info.keyboard == "fr" then "ampersand" else "1"
-      }, workspace, 1
-      bind = $mainMod, ${
-        if info.keyboard == "fr" then "eacute" else "2"
-      }, workspace, 2
-      bind = $mainMod, ${
-        if info.keyboard == "fr" then "quotedbl" else "3"
-      }, workspace, 3
-      bind = $mainMod, ${
-        if info.keyboard == "fr" then "apostrophe" else "4"
-      }, workspace, 4
-      bind = $mainMod, ${
-        if info.keyboard == "fr" then "parenleft" else "5"
-      }, workspace, 5
-      bind = $mainMod, ${if info.keyboard == "fr" then "minus" else "6"}, workspace, 6
-      bind = $mainMod, ${
-        if info.keyboard == "fr" then "egrave" else "7"
-      }, workspace, 7
-      bind = $mainMod, ${
-        if info.keyboard == "fr" then "underscore" else "8"
-      }, workspace, 8
-      bind = $mainMod, ${
-        if info.keyboard == "fr" then "ccedilla" else "9"
-      }, workspace, 9
-      bind = $mainMod, ${
-        if info.keyboard == "fr" then "agrave" else "0"
-      }, workspace, 10
-
-      # Move active window to a workspace with mainMod + SHIFT + [0-9] and DONT go there
-      bind = $mainMod SHIFT, ${
-        if info.keyboard == "fr" then "ampersand" else "1"
-      }, movetoworkspacesilent, 1
-      bind = $mainMod SHIFT, ${
-        if info.keyboard == "fr" then "eacute" else "2"
-      }, movetoworkspacesilent, 2
-      bind = $mainMod SHIFT, ${
-        if info.keyboard == "fr" then "quotedbl" else "3"
-      }, movetoworkspacesilent, 3
-      bind = $mainMod SHIFT, ${
-        if info.keyboard == "fr" then "apostrophe" else "4"
-      }, movetoworkspacesilent, 4
-      bind = $mainMod SHIFT, ${
-        if info.keyboard == "fr" then "parenleft" else "5"
-      }, movetoworkspacesilent, 5
-      bind = $mainMod SHIFT, ${
-        if info.keyboard == "fr" then "minus" else "6"
-      }, movetoworkspacesilent, 6
-      bind = $mainMod SHIFT, ${
-        if info.keyboard == "fr" then "egrave" else "7"
-      }, movetoworkspacesilent, 7
-      bind = $mainMod SHIFT, ${
-        if info.keyboard == "fr" then "underscore" else "8"
-      }, movetoworkspacesilent, 8
-      bind = $mainMod SHIFT, ${
-        if info.keyboard == "fr" then "ccedilla" else "9"
-      }, movetoworkspacesilent, 9
-      bind = $mainMod SHIFT, ${
-        if info.keyboard == "fr" then "agrave" else "0"
-      }, movetoworkspacesilent, 10'';
-
-    ".config/hypr" = {
-      source = ./dotfiles/hypr;
-      recursive = true;
-    };
-
   };
 
   # Home Manager can also manage your environment variables through
