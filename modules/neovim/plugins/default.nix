@@ -55,7 +55,7 @@
       neo-tree = {
         enable = true;
         settings.window = {
-          width = 25; # Adjust this number (default is usually 40)
+          width = 40; # Adjust this number (default is usually 40)
         };
       };
 
